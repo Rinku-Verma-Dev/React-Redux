@@ -9,7 +9,7 @@ function Login() {
   };
   return (
     <>
-      <Link to="/about">About</Link>
+      <h1>REDUX LOGIN</h1>
       <button type="submit" onClick={handleLogin}>
         LogIn
       </button>

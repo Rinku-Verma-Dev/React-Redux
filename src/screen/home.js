@@ -1,9 +1,12 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "../redux/features/counterSlice";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/login");
@@ -11,20 +14,23 @@ function Home() {
 
   return (
     <>
-      <ul>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contactus">Contact Us</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <button onClick={logout}>Log Out</button>
-        </li>
-      </ul>
+      <div>
+        <h1>REDUX</h1>
+        <div>{count}</div>
+        <button
+          // aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <button
+          // aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
+      <button onClick={logout}>Log Out</button>
     </>
   );
 }
