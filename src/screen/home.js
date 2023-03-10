@@ -18,13 +18,13 @@ function Home() {
         <h1>REDUX</h1>
         <div>{count}</div>
         <button
-          // aria-label="Increment value"
+          aria-label="Increment value"
           onClick={() => dispatch(increment())}
         >
           Increment
         </button>
         <button
-          // aria-label="Decrement value"
+          aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
           Decrement
